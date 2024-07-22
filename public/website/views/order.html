@@ -1,0 +1,35 @@
+<div class="container-fluid" style="height: 50px;"></div>
+<div class="bg-body-secondary">
+  <div class="container py-5">
+    <section class="mb-5">
+        <h3 class="text-center">Đơn Hàng</h3>
+    </section>
+    <div ng-repeat="dh in dsDH | filter:{idUser : user.id}" class="bg-white mt-3 p-3 w-75 mx-auto">
+      <section class="d-flex justify-content-between">
+        <h6 class="fw-bold m-0 p-0">TK Shoes - Chi tiết đơn hàng</h6>
+        <div class="d-flex"><h6 class="fw-bold m-0 p-0 me-2">Trạng thái: <h6 class="text-red m-0 p-0">{{dh.status}}</h6></h6></div>
+      </section>
+      <hr>
+      <div ng-repeat="sp in dh.$product" class="product_order">
+        <div class="d-flex">
+          <img src="public/img/product_img/{{sp.img}}1.jpg" width="100" alt="" srcset="">
+          <div class="ms-4">
+            <h5>{{sp.name}}</h5>
+            <p>Số lượng: {{sp.quantity}}</p>
+          </div>
+          <p class="d-flex m-0 ms-auto align-items-center">Tổng cộng: {{sp.price * sp.quantity | currency:'':0}}đ</p>
+        </div>
+        <hr>
+      </div>
+      <div class="text-end">
+        <div class="d-flex justify-content-between">
+          <p>Ngày đặt hàng: {{ Date(dh.date) | date:"HH:mm dd/MM/yyyy"}}</p>
+          <div class="d-flex">
+            <p class="me-2">Tổng đơn hàng: <h5 class="text-red">{{dh.total | currency:'':0}}đ</h5></p>
+          </div>
+        </div>
+        <button ng-click=(deleteOder(dh.id)) class="btn btn-danger">Hủy đơn</button>
+      </div>
+    </div>
+  </div>
+</div>

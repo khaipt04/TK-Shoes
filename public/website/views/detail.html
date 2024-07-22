@@ -1,0 +1,154 @@
+<div class="container-fluid" style="height: 50px;"></div>
+<div class="info-box-detail container-fluid row mt-5 px-5 mx-auto">
+    <div class="col-md-6">
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active" >
+                    <img src="public/img/product_img/{{sp.img}}1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="public/img/product_img/{{sp.img}}2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="public/img/product_img/{{sp.img}}3.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="public/img/product_img/{{sp.img}}4.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="public/img/product_img/{{sp.img}}5.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid text-center mt-3">
+            <img class="img-thumbnail p-0 rounded-0 mb-2" src="public/img/product_img/{{sp.img}}1.jpg" width="80" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" alt="">
+            <img class="img-thumbnail p-0 rounded-0 mb-2" src="public/img/product_img/{{sp.img}}2.jpg" width="80" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" alt="">
+            <img class="img-thumbnail p-0 rounded-0 mb-2" src="public/img/product_img/{{sp.img}}3.jpg" width="80" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" alt="">
+            <img class="img-thumbnail p-0 rounded-0 mb-2" src="public/img/product_img/{{sp.img}}4.jpg" width="80" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" alt="">
+            <img class="img-thumbnail p-0 rounded-0 mb-2" src="public/img/product_img/{{sp.img}}5.jpg" width="80" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" alt="">
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <h3 ng-model="orderName">{{sp.name}}</h3>
+        <h4 class="mt-5 text-danger">{{sp.price | currency:'':0}} đ</h4>
+        <h5 class="mt-5">Màu sắc: {{sp.color}}</h5>
+        <div class="mt-5 row">
+            <h5 class="col-6">Kích cỡ:</h5>
+            <p class="col-6 text-end text-size" style="cursor: pointer;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">HD cách chọn size<i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></p>
+        </div>
+        <div class="box-size row container-fluid mx-auto p-0 text-center">
+            <div class="col-md-2 ps-0">
+                <button id="size-37" class="btn btn-outline-dark text-center fs-5 rounded-3 w-100">37</button>
+            </div>
+            <div class="col-md-2" >   
+                <button id="size-38" class="btn btn-outline-dark text-center fs-5 rounded-3 w-100">38</button>
+            </div>
+            <div class="col-md-2" >
+                <button id="size-39" class="btn btn-outline-dark text-center fs-5 rounded-3 w-100">39</button>
+            </div>
+            <div class="col-md-2" >
+                <button id="size-40" class="btn btn-outline-dark text-center fs-5 rounded-3 w-100">40</button>
+            </div>
+            <div class="col-md-2" >
+                <button id="size-41" class="btn btn-outline-dark text-center fs-5 rounded-3 w-100">41</button>
+            </div>
+            <div class="col-md-2 pe-0" >
+                <button id="size-42" class="btn btn-outline-dark text-center fs-5 rounded-3 w-100">42</button>
+            </div>
+        </div>
+        <button class="btn btn-buy btn-dark fs-4 w-100 mt-5" ng-click="addToCart(sp)">THÊM VÀO GIỎ HÀNG</button>
+        <!-- modal size -->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img class="img-fluid mt-2" src="public/img/table-size.jpeg" alt="">
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- end modal -->
+    </div>
+
+    <div class="col-12" style="height: 70px;"></div>
+
+    <div class="row mt-5 p-0">
+        <div class="col-md-6 row mb-5 align-items-center">
+            <i class="bi bi-check-circle col-2" style="font-size: 60px;"></i>
+            <div class="col-10">
+                <h5 class="m-0">Chất lượng sản phẩm?</h5>
+                <p class="m-0 mt-2" style="font-size: 14px;">Sản phẩm luôn được kiểm định, đánh giá với chất lượng cao nhất trước khi đến tay khách hàng!</p>
+            </div> 
+        </div>
+        <div class="col-md-6 ms-4 mb-5 row align-items-center">
+            <i class="bi bi-hourglass-split col-2" style="font-size: 60px;"></i>
+            <div class="col-10">
+                <h5 class="m-0">Thời gian giao hàng?</h5>
+                <p class="m-0 mt-2" style="font-size: 14px;">Chúng tôi sử dụng đơn vi vận chuyển uy tín và nhanh chóng nhất, thời dự kiến từ 1-4 ngày tuy khu vực.</p>
+            </div> 
+        </div>
+        <div class="col-md-6 row mb-5 align-items-center">
+            <i class="bi bi-palette col-2" style="font-size: 60px;"></i>
+            <div class="col-10">
+                <h5 class="m-0">Sai màu sản phẩm?</h5>
+                <p class="m-0 mt-2" style="font-size: 14px;">Vì 1 số yếu tố khách quan như độ sáng màn hình, chất lượng màn hình nên sản phẩm có thể ko đúng màu.</p>
+            </div> 
+        </div>
+        <div class="col-md-6 ms-4 mb-5 row align-items-center">
+            <i class="bi bi-clock col-2" style="font-size: 60px;"></i>
+            <div class="col-10">
+                <h5 class="m-0">Thời gian làm việc?</h5>
+                <p class="m-0 mt-2" style="font-size: 14px;">Hệ thống cửa hàng và Online làm việc từ 8:30 - 22:00 hàng ngày.</p>
+            </div> 
+        </div>
+        <div class="col-md-6 row mb-5 align-items-center">
+            <i class="bi bi-backpack col-2" style="font-size: 60px;"></i>
+            <div class="col-10">
+                <h5 class="m-0">Hàng có sẵn không?</h5>
+                <p class="m-0 mt-2" style="font-size: 14px;">Sản phẩm hiện có sẵn tại hệ thống cửa hàng và online tại website.</p>
+            </div> 
+        </div>
+        <div class="col-md-6 ms-4 mb-5 row align-items-center">
+            <i class="bi bi-arrow-repeat col-2" style="font-size: 60px;"></i>
+            <div class="col-10">
+                <h5 class="m-0">Đổi hàng như thế nào?</h5>
+                <p class="m-0 mt-2" style="font-size: 14px;">Việc đổi hàng rất dễ dàng và chúng tôi luôn muốn khách hàng ưng ý nhất. Hãy liên hệ fanpage để đổi!</p>
+            </div> 
+        </div>
+        <div class="col-md-6 row mb-5 align-items-center">
+            <i class="bi bi-hand-thumbs-up col-2" style="font-size: 60px;"></i>
+            <div class="col-10">
+                <h5 class="m-0">Bảo hành sản phẩm</h5>
+                <p class="m-0 mt-2" style="font-size: 14px;">Sản phẩm được bảo hành trong 30 ngày với bất kỳ lỗi nào. Hàng SALE không được bảo hành.</p>
+            </div> 
+        </div>
+        <div class="col-md-6 ms-4 mb-5 row align-items-center">
+            <i class="bi bi-arrows-angle-contract col-2" style="font-size: 60px;"></i>
+            <div class="col-10">
+                <h5 class="m-0">Chọn sai size giày?</h5>
+                <p class="m-0 mt-2" style="font-size: 14px;">Bạn có thể qua cửa hàng hoặc gửi lại để đổi hàng với sản phẩm mới 100%. Còn nguyên tem mác, hoá đơn mua hàng.</p>
+            </div> 
+        </div>
+        <hr>
+    </div>
+
+    <div class="row mt-5 p-0">
+        <section class="col-12 text-center mb-5">
+            <h4>Sản Phẩm Liên Quan</h4>
+        </section>
+        <div ng-repeat="sp in dsSPLQ | filter:nameFilter | filter:isNotName | limitTo: 6" class="col-md-2 mt-2 mb-5">
+            <a href="#!detail/{{sp.id}}" class="text-decoration-none">
+                <div class="card border-0 shadow">
+                    <img src="public/img/product_img/{{sp.img}}1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h6 class="card-title text-center fw-bold">{{sp.name}}</h6>
+                      <p class="card-text text-center fw-bold text-red fs-7">{{sp.price | currency:'':0}}đ</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+

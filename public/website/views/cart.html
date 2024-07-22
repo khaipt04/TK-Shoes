@@ -1,0 +1,85 @@
+<div class="container-fluid" style="height: 50px;"></div>
+<div class="container py-5">
+    <section>
+        <h3 class="text-center">Giỏ Hàng</h3>
+    </section>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th class="fs-5" scope="col">Sản phẩm</th>
+                <th class="fs-5" scope="col"></th>
+                <th class="fs-5" scope="col">Giá</th>
+                <th class="fs-5" scope="col">Số lượng</th>
+                <th class="fs-5" scope="col">Tổng</th>
+                <th class="fs-5" scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="sp in cart">
+                <td class="fs-5 align-middle"><img class="img-fluid" src="public/img/product_img/{{sp.img}}1.jpg" width="100" alt=""></td>
+                <td class="fs-5 align-middle">{{sp.name}}</td>
+                <td class="fs-5 align-middle">{{sp.price | currency:'':0}}đ</td>
+                <td class="fs-5 align-middle">
+                    <input class="form-control" style="width: 70px;" type="number" ng-model="sp.quantity" ng-change="updateQuantity(sp)" min="1">
+                </td>
+                <td class="fs-5 align-middle">{{sp.price * sp.quantity | currency:'':0}}đ</td>
+                <td class="fs-5 align-middle"><button ng-click="delete($index)" type="button" class="btn-close" aria-label="Close"></button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="total-cart row p-5">
+        <h2 class="col-md-4 fw-bold">THANH TOÁN</h2>
+        <div class="col-md-8">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th class="fs-5 pb-5">TẠM TÍNH</th>
+                        <td class="fs-5 pb-5">{{total() | currency:'':0}}đ</td>
+                    </tr>
+                    <tr>
+                        <th class="fs-5 py-5">PHÍ SHIP</th>
+                        <td class="fs-5 py-5">{{(cart.length > 0) ? ship : 0 | currency:'':0}}đ</td>
+                    </tr>
+                    <tr>
+                        <th class="fs-5 py-5">TỔNG</th>
+                        <td class="fs-5 py-5">{{total() + ship | currency:'':0}}đ</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button ng-click="checkUser()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-dark btn-paying mt-4 d-flex justify-content-center align-items-center fs-4 w-100">TIẾN HÀNH THANH TOÁN</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Thông tin giao hàng</h1>
+          <button type="button" class="btn-close btn-out" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form ng-submit="checkout()" name="myForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Họ tên</label>
+              <input type="text" ng-model="user.name" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Số điện thoại</label>
+              <input type="text" name="phone" ng-model="user.phone" class="form-control" id="phone" pattern="^[0-9]{10,11}$" required>
+              <label class="text-danger" ng-show="myForm.phone.$error.pattern">Số điện thoại không đúng định dạng!</label>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Địa chỉ</label>
+              <input type="text" ng-model="user.address" class="form-control" id="address" value="" required>
+            </div>
+            <button type="submit" class="btn btn-success float-end">Xác nhận</button>
+            <button ng-show="user" ng-click="saveInfoUser()" type="button" class="btn btn-success float-end me-2">Lưu thông tin giao hàng</button>
+            <button type="button" class="btn btn-secondary btn-out float-end me-2" data-bs-dismiss="modal">Kiểm tra lại</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
