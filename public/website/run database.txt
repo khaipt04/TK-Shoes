@@ -1,2 +1,0 @@
-cd ../
-npx json-server database.json
